@@ -1,3 +1,7 @@
 main: world.fluff.Main
 name: FluffWorldMinecraft
 version: 0.1
+commands:
+  hello:
+    description: Hello, World!
+    usage: /hello

@@ -1,6 +1,6 @@
-default: install
+default: dep
 
-install:
+dep:
 	mvn install:install-file \
 		-Dfile=./lib/MinimapAPI.jar \
 		-DgroupId=me.liec0dez \

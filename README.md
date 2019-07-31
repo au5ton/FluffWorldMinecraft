@@ -5,7 +5,7 @@ Custom Spigot 1.14 plugin
 - `cd FluffWorldMinecraft/`
 - Install local jar dependencies in `lib/`: 
 
-    `$ make`
+    `$ make dep`
 - Install maven dependencies:
 
     `$ mvn install`
