@@ -5,9 +5,11 @@ import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Scoreboard;
 
 public class FluffScoreboard {
-    private Scoreboard sb;
-    public FluffScoreboard(Scoreboard sb) {
+    private DBConnection db = null;
+    private Scoreboard sb = null;
+    public FluffScoreboard(DBConnection db, Scoreboard sb) {
         this.sb = sb;
+        this.db = db;
         createHealthObjective();
     }
 
