@@ -63,5 +63,5 @@ Temporary Items
 .apdisk
 
 bin/
+target/
 
-src/world/fluff/nbt/PlayerNBT.java
