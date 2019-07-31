@@ -8,6 +8,7 @@
 
 # Package Files #
 *.jar
+!lib/*.jar
 *.war
 *.ear
 
@@ -64,4 +65,5 @@ Temporary Items
 
 bin/
 target/
+repo/
 

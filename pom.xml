@@ -22,6 +22,10 @@
       <id>spigot-repo</id>
       <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
     </repository>
+    <repository>
+      <id>local-repo</id>
+      <url>file://${basedir}/repo</url>
+    </repository>
   </repositories>
 
   <dependencies>
@@ -30,6 +34,11 @@
       <artifactId>spigot-api</artifactId>
       <version>1.14.4-R0.1-SNAPSHOT</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>me.liec0dez</groupId>
+      <artifactId>MinimapAPI</artifactId>
+      <version>1.0</version>
     </dependency>
   </dependencies>
 
@@ -43,5 +52,19 @@
         </includes>
       </resource>
     </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
 </project>
