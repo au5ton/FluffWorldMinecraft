@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 
@@ -84,5 +85,38 @@ public class DBConnection {
         catch(SQLException e) {
             plugin.getLogger().warning(e.getMessage());
         }
+    }
+
+    // Change a player's chat color
+    public void setChatColor(Player player, String color) {
+        try {
+            PreparedStatement s = connection.prepareStatement("UPDATE players SET chat_color = ? WHERE uuid = ?");
+            s.setString(1, color);
+            s.setString(2, player.getUniqueId().toString());
+            s.executeUpdate();
+        }
+        catch(SQLException e) {
+            plugin.getLogger().warning(e.getMessage());
+        }
+    }
+
+    // Get a player's chat color
+    public ChatColor getChatColor(Player player) {
+        try {
+            PreparedStatement s = connection.prepareStatement("SELECT chat_color FROM players WHERE uuid = ?");
+            s.setString(1, player.getUniqueId().toString());
+            ResultSet rs = s.executeQuery();
+            if(rs.next()) {
+                return ChatColor.valueOf(rs.getString("chat_color"));
+            }
+        }
+        catch(IllegalArgumentException e) {
+            // db value isn't a real color
+            return ChatColor.WHITE;
+        }
+        catch(SQLException e) {
+            plugin.getLogger().warning(e.getMessage());
+        }
+        return ChatColor.WHITE;
     }
 }
