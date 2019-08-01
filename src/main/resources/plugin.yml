@@ -1,0 +1,7 @@
+main: world.fluff.Main
+name: FluffWorldMinecraft
+version: 0.1
+commands:
+  chatcolor:
+    description: Change your chat color
+    usage: /chatcolor

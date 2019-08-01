@@ -8,6 +8,7 @@
 
 # Package Files #
 *.jar
+!lib/*.jar
 *.war
 *.ear
 
@@ -63,5 +64,6 @@ Temporary Items
 .apdisk
 
 bin/
+target/
+repo/
 
-src/world/fluff/nbt/PlayerNBT.java
