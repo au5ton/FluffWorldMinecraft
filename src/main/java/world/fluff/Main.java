@@ -12,6 +12,7 @@ import me.liec0dez.MinimapAPI.MinimapAPI;
 public class Main extends JavaPlugin {
     protected DBConnection db;
     protected FluffScoreboard sb;
+    protected MinimapAPI map;
 
     @Override
     public void onEnable() {
@@ -19,12 +20,15 @@ public class Main extends JavaPlugin {
         getDataFolder().mkdir();
         db = new DBConnection(this);
 
+        //map = MinimapAPI.getInstance();
+
         // Use primary scoreboard
         sb = new FluffScoreboard(db, Bukkit.getScoreboardManager().getMainScoreboard());
         // Register event listener
         getServer().getPluginManager().registerEvents(new FluffListener(db, this), this);
         // setup command handlers
         getCommand("chatcolor").setExecutor(new CommandChatColor(db, this));
+        //getCommand("share").setExecutor(new CommandShare(db, this));;
     }
 
     @Override
