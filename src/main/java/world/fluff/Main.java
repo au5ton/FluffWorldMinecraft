@@ -35,7 +35,7 @@ public class Main extends JavaPlugin {
     public void onDisable() {
         // Clean up
         db.kill();
-        sb.kill();
+        //sb.kill();
     }
 
 }

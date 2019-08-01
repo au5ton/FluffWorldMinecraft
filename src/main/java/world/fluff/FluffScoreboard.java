@@ -10,7 +10,12 @@ public class FluffScoreboard {
     public FluffScoreboard(DBConnection db, Scoreboard sb) {
         this.sb = sb;
         this.db = db;
-        createHealthObjective();
+        try {
+            createHealthObjective();
+        }
+        catch(Exception e) {
+            //
+        }
     }
 
     private void createHealthObjective() {
@@ -24,6 +29,6 @@ public class FluffScoreboard {
     }
 
     public void kill() {
-        sb.getObjective("health").unregister();
+        //sb.getObjective("health").unregister();
     }
 }

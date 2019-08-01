@@ -1,6 +1,10 @@
 *.class
-.classpath
-.settings/
+
+# See: https://stackoverflow.com/a/337317/4852536
+#.classpath
+#.settings/
+
+
 .metadata/
 
 # Mobile Tools for Java (J2ME)
@@ -66,4 +70,3 @@ Temporary Items
 bin/
 target/
 repo/
-
