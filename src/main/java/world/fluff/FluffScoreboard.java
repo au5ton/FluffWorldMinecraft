@@ -16,11 +16,11 @@ public class FluffScoreboard {
     private void createHealthObjective() {
         // Player health
         sb.registerNewObjective("health", "health", ChatColor.RED+"\u2665");
-		sb.getObjective("health").setDisplaySlot(DisplaySlot.BELOW_NAME);
+        sb.getObjective("health").setDisplaySlot(DisplaySlot.BELOW_NAME);
     }
 
     public Scoreboard getScoreboard() {
-        return this.sb;
+        return sb;
     }
 
     public void kill() {

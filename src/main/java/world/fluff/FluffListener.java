@@ -1,6 +1,13 @@
 package world.fluff;
 
+import java.util.Arrays;
+import java.util.ArrayList;
+
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.ItemDespawnEvent;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;
 
@@ -20,6 +27,27 @@ public class FluffListener implements Listener {
         }
         else {
             db.updatePlayerUsername(event.getPlayer());
+        }
+        
+        // Set player display color on join
+        event.getPlayer().setDisplayName(db.getChatColor(event.getPlayer()) + event.getPlayer().getName());
+        event.getPlayer().setPlayerListName(db.getChatColor(event.getPlayer()) + event.getPlayer().getName());
+    }
+
+    @EventHandler
+    public void onItemDespawn(ItemDespawnEvent event) {
+        Material item = event.getEntity().getItemStack().getType();
+        ArrayList<Material> s = new ArrayList<Material>(Arrays.asList(Material.BONE, Material.ROTTEN_FLESH, Material.STRING, Material.EGG, Material.ARROW));
+        if(s.contains(item)) {
+            return;
+        }
+        int amount = event.getEntity().getItemStack().getAmount();
+        String itemName = event.getEntity().getItemStack().getType().toString();
+        if(amount > 1) {
+            Bukkit.broadcastMessage(ChatColor.YELLOW + "" + amount + " " + ChatColor.RESET + itemName + ChatColor.YELLOW + " despawned.");
+        }
+        else {
+            Bukkit.broadcastMessage(itemName + ChatColor.YELLOW + " despawned.");
         }
     }
 }

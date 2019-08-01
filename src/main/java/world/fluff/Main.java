@@ -10,8 +10,8 @@ import me.liec0dez.MinimapAPI.MinimapAPI;
  *
  */
 public class Main extends JavaPlugin {
-    private DBConnection db;
-    private FluffScoreboard sb;
+    protected DBConnection db;
+    protected FluffScoreboard sb;
 
     @Override
     public void onEnable() {
@@ -19,12 +19,12 @@ public class Main extends JavaPlugin {
         getDataFolder().mkdir();
         db = new DBConnection(this);
 
-        // Activate custom scoreboard
-        sb = new FluffScoreboard(db, Bukkit.getScoreboardManager().getNewScoreboard());
+        // Use primary scoreboard
+        sb = new FluffScoreboard(db, Bukkit.getScoreboardManager().getMainScoreboard());
         // Register event listener
         getServer().getPluginManager().registerEvents(new FluffListener(db, this), this);
         // setup command handlers
-        getCommand("hello").setExecutor(new CommandHello());
+        getCommand("chatcolor").setExecutor(new CommandChatColor(db, this));
     }
 
     @Override
