@@ -21,33 +21,38 @@ public class FluffListener implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        // Maintain that UUIDs and usernames are in order
-        if(!db.checkForPlayerRecord(event.getPlayer())) {
-            db.insertPlayerRecord(event.getPlayer());
+        try {
+            // Maintain that UUIDs and usernames are in order
+            if(!db.checkForPlayerRecord(event.getPlayer())) {
+                db.insertPlayerRecord(event.getPlayer());
+            }
+            else {
+                db.updatePlayerUsername(event.getPlayer());
+            }
+            
+            // Set player display color on join
+            event.getPlayer().setDisplayName(db.getChatColor(event.getPlayer()) + event.getPlayer().getName());
+            event.getPlayer().setPlayerListName(db.getChatColor(event.getPlayer()) + event.getPlayer().getName());
         }
-        else {
-            db.updatePlayerUsername(event.getPlayer());
+        catch(Exception e) {
+            //
         }
-        
-        // Set player display color on join
-        event.getPlayer().setDisplayName(db.getChatColor(event.getPlayer()) + event.getPlayer().getName());
-        event.getPlayer().setPlayerListName(db.getChatColor(event.getPlayer()) + event.getPlayer().getName());
     }
 
     @EventHandler
     public void onItemDespawn(ItemDespawnEvent event) {
-        Material item = event.getEntity().getItemStack().getType();
-        ArrayList<Material> s = new ArrayList<Material>(Arrays.asList(Material.BONE, Material.ROTTEN_FLESH, Material.STRING, Material.EGG, Material.ARROW));
-        if(s.contains(item)) {
-            return;
-        }
-        int amount = event.getEntity().getItemStack().getAmount();
-        String itemName = event.getEntity().getItemStack().getType().toString();
-        if(amount > 1) {
-            Bukkit.broadcastMessage(ChatColor.YELLOW + "" + amount + " " + ChatColor.RESET + itemName + ChatColor.YELLOW + " despawned.");
-        }
-        else {
-            Bukkit.broadcastMessage(itemName + ChatColor.YELLOW + " despawned.");
-        }
+        // Material item = event.getEntity().getItemStack().getType();
+        // ArrayList<Material> s = new ArrayList<Material>(Arrays.asList(Material.BONE, Material.ROTTEN_FLESH, Material.STRING, Material.EGG, Material.ARROW, Material.SPIDER_EYE, Material.STICK, Material.ACACIA_SAPLING, Material.SPRUCE_SAPLING, Material.BIRCH_SAPLING, Material.DARK_OAK_SAPLING, Material.JUNGLE_SAPLING, Material.OAK_SAPLING));
+        // if(s.contains(item)) {
+        //     return;
+        // }
+        // int amount = event.getEntity().getItemStack().getAmount();
+        // String itemName = event.getEntity().getItemStack().getType().toString();
+        // if(amount > 1) {
+        //     Bukkit.broadcastMessage(ChatColor.YELLOW + "" + amount + " " + ChatColor.RESET + itemName + ChatColor.YELLOW + " despawned.");
+        // }
+        // else {
+        //     Bukkit.broadcastMessage(itemName + ChatColor.YELLOW + " despawned.");
+        // }
     }
 }
