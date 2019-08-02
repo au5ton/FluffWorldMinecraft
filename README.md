@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/au5ton/FluffWorldMinecraft.svg?branch=master)](https://travis-ci.org/au5ton/FluffWorldMinecraft)
+
 # FluffWorldMinecraft
 Custom Spigot 1.14 plugin
 

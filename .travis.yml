@@ -1,0 +1,17 @@
+language: java
+jdk:
+- openjdk8
+script:
+- make ci
+deploy:
+  provider: pages
+  target_branch: mvn-repo
+  local_dir: "./target/mvn-repo"
+  skip_cleanup: true
+  github_token: "$GH_TOKEN"
+  keep_history: false
+  on:
+    branch: master
+env:
+  global:
+    secure: oRK5stFMqfeuFJ/1pypCgxJdn4gp4heaccYv6GWMDTjVm7p/CDrdxEJ0Co5kWt80UsqwkWfbLsYfKJ4F8evlsSaZ2veUd9oGB87HzDR4XJ/Y0sfC9jdXPEBESbleVpMAORnAMNrH3ZnE/lrRieUrpMa8ik6C0bJCO2QAIHLtDr1oetZNVxddHSVWgo4huGegzgS5htmYwaSGd+JF6rzxsvW+kRNtaXyqrKWnYhrm6Tf1ZnyFZPdpTaojY/Z+3lnits4waa4xBqCUujVdrkn+W2lQGFpVB4xwgXuYmQFeGjFA5gwkS+FN6LHK/WxKPPzszAIA86XYQGJc8rNqykeTByw5oBWYMvZpuXZnb4JiDjfxwO1Qv39PBZ/YXB4mwqSwF5c0PmWSumMYpRLd7+hAkosmMDlYrPSU9vA86hlmtBmmGcc+BYWtZYwgXU8E3AxkSOntkKfONUFBnS8kPJA46Xock7iErTScSW3oRiFE8KDDf3eOtqUdXwDytnbB9VE8euO1wOeFXmbfmrirM82H/SY/mReEMi2dAhXlFivN5NCu+dg1OWrHWK41z64Etu5Rz5Apt8pNhKlvBUVQjWMGO9HW9dGFsT/Qy+Mnyt1+Yzw+DCROhVPjGDNQxirgXS9349GSFodwBRz5PQKlZT18Gpjpy/nuKZnQDMFr7c1aY6I=
