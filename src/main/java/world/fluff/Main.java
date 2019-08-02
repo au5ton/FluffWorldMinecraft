@@ -3,7 +3,6 @@ package world.fluff;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import net.austinj.xaerominimap.MinimapAPI;
 /**
  * Hello world!
  *
@@ -11,15 +10,12 @@ import net.austinj.xaerominimap.MinimapAPI;
 public class Main extends JavaPlugin {
     protected DBConnection db;
     protected FluffScoreboard sb;
-    protected MinimapAPI map;
 
     @Override
     public void onEnable() {
         // Setup database
         getDataFolder().mkdir();
         db = new DBConnection(this);
-
-        //map = MinimapAPI.getInstance();
 
         // Use primary scoreboard
         sb = new FluffScoreboard(db, Bukkit.getScoreboardManager().getMainScoreboard());
