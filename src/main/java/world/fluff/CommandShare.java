@@ -27,10 +27,10 @@ public class CommandShare implements CommandExecutor {
             Player player = plugin.getServer().getPlayer(sender.getName());
             Waypoint wp = new Waypoint(new Location(player.getWorld(), 0, 128, 0), "abc123", "[fwmc] Shared Point", 'S', ChatColor.AQUA, false);
             plugin.map.sendWaypoint(wp, player);
-            // Collection<String> str = plugin.map.getIdentifiers(player);
-            // for(String s : str) {
-            //     sender.sendMessage(s);
-            // } java.lang.IllegalArgumentException: Channel must contain : separator 
+            Collection<String> str = plugin.map.getIdentifiers(player);
+            for(String s : str) {
+                sender.sendMessage(s);
+            }
         }
         else {
             sender.sendMessage("Sorry, you have to be a player to use that command.");
