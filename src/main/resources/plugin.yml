@@ -5,3 +5,4 @@ commands:
   chatcolor:
     description: Change your chat color
     usage: /chatcolor
+depend: [MinimapAPI]

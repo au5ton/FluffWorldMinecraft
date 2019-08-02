@@ -3,8 +3,7 @@ package world.fluff;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.liec0dez.MinimapAPI.MinimapAPI;
-
+import net.austinj.xaerominimap.MinimapAPI;
 /**
  * Hello world!
  *

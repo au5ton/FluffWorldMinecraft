@@ -9,7 +9,7 @@ Custom Spigot 1.14 plugin
 - Install maven dependencies:
 
     `$ mvn install`
-- Create jar file (dependencies are [shaded](http://maven.apache.org/plugins/maven-shade-plugin/index.html)):
+- Create jar file:
 
     `$ mvn package`
 - see `target/` directory for generated jar file
@@ -19,4 +19,5 @@ Custom Spigot 1.14 plugin
 - Maven
 - make
 - SpigotMC 1.14.4-R0.1-SNAPSHOT API
+- `net.austinj.xaerominimap.MinimapAPI` plugin must be loaded on the server too
 

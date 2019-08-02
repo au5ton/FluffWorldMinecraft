@@ -9,8 +9,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import me.liec0dez.MinimapAPI.MinimapAPI;
-import me.liec0dez.MinimapAPI.Waypoint;
+import net.austinj.xaerominimap.MinimapAPI;
+import net.austinj.xaerominimap.Waypoint;
 
 public class CommandShare implements CommandExecutor {
     private DBConnection db;

@@ -23,8 +23,12 @@
       <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
     </repository>
     <repository>
-      <id>local-repo</id>
-      <url>file://${basedir}/repo</url>
+      <id>net.austinj.xaerominimap</id>
+      <url>https://au5ton.github.io/MinimapAPI/mvn-repo/</url>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
     </repository>
   </repositories>
 
@@ -36,9 +40,10 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>me.liec0dez</groupId>
+      <groupId>net.austinj.xaerominimap</groupId>
       <artifactId>MinimapAPI</artifactId>
-      <version>1.0</version>
+      <version>1.0-SNAPSHOT</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.xerial</groupId>
@@ -57,19 +62,5 @@
         </includes>
       </resource>
     </resources>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>shade</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
   </build>
 </project>
