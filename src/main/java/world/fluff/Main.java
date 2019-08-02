@@ -27,7 +27,7 @@ public class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new FluffListener(db, this), this);
         // setup command handlers
         getCommand("chatcolor").setExecutor(new CommandChatColor(db, this));
-        //getCommand("share").setExecutor(new CommandShare(db, this));;
+        getCommand("share").setExecutor(new CommandShare(db, this));;
     }
 
     @Override
