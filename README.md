@@ -21,7 +21,7 @@ Custom Spigot 1.14 plugin
 - Maven
 - make
 - SpigotMC 1.14.4-R0.1-SNAPSHOT API
-- `net.austinj.xaerominimap.MinimapAPI` plugin must be loaded on the server too
+- [`net.austinj.xaerominimap.MinimapAPI`](https://github.com/au5ton/MinimapAPI) plugin must be loaded on the server too
 
 
 ## Features
