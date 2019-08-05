@@ -21,9 +21,10 @@ public class Main extends JavaPlugin {
         sb = new FluffScoreboard(db, Bukkit.getScoreboardManager().getMainScoreboard());
         // Register event listener
         getServer().getPluginManager().registerEvents(new FluffListener(db, this), this);
+        getServer().getPluginManager().registerEvents(new FluffDeathDropListener(db, this), this);
         // setup command handlers
         getCommand("chatcolor").setExecutor(new CommandChatColor(db, this));
-        getCommand("share").setExecutor(new CommandShare(db, this));;
+        //getCommand("share").setExecutor(new CommandShare(db, this));
     }
 
     @Override

@@ -1,19 +1,15 @@
 package world.fluff;
 
-import java.util.Arrays;
-import java.util.ArrayList;
-
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.ItemDespawnEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 public class FluffListener implements Listener {
-    private DBConnection db = null;
-    private Main plugin = null;
+    private DBConnection db;
+    private Main plugin;
+
     public FluffListener(DBConnection db, Main plugin) {
         this.db = db;
         this.plugin = plugin;
@@ -31,8 +27,8 @@ public class FluffListener implements Listener {
             }
             
             // Set player display color on join
-            event.getPlayer().setDisplayName(db.getChatColor(event.getPlayer()) + event.getPlayer().getName());
-            event.getPlayer().setPlayerListName(db.getChatColor(event.getPlayer()) + event.getPlayer().getName());
+            event.getPlayer().setDisplayName(db.getChatColor(event.getPlayer()) + event.getPlayer().getName() + ChatColor.RESET);
+            event.getPlayer().setPlayerListName(db.getChatColor(event.getPlayer()) + event.getPlayer().getName() + ChatColor.RESET);
         }
         catch(Exception e) {
             //
@@ -40,19 +36,9 @@ public class FluffListener implements Listener {
     }
 
     @EventHandler
-    public void onItemDespawn(ItemDespawnEvent event) {
-        // Material item = event.getEntity().getItemStack().getType();
-        // ArrayList<Material> s = new ArrayList<Material>(Arrays.asList(Material.BONE, Material.ROTTEN_FLESH, Material.STRING, Material.EGG, Material.ARROW, Material.SPIDER_EYE, Material.STICK, Material.ACACIA_SAPLING, Material.SPRUCE_SAPLING, Material.BIRCH_SAPLING, Material.DARK_OAK_SAPLING, Material.JUNGLE_SAPLING, Material.OAK_SAPLING));
-        // if(s.contains(item)) {
-        //     return;
-        // }
-        // int amount = event.getEntity().getItemStack().getAmount();
-        // String itemName = event.getEntity().getItemStack().getType().toString();
-        // if(amount > 1) {
-        //     Bukkit.broadcastMessage(ChatColor.YELLOW + "" + amount + " " + ChatColor.RESET + itemName + ChatColor.YELLOW + " despawned.");
-        // }
-        // else {
-        //     Bukkit.broadcastMessage(itemName + ChatColor.YELLOW + " despawned.");
-        // }
+    public void onPlayerDeath(PlayerDeathEvent event) {
+        // Appends " (level was 123)" at the end of a death message
+        event.setDeathMessage(String.format("%s (level was %s)", event.getDeathMessage(), event.getEntity().getLevel()));
     }
+
 }

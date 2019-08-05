@@ -23,3 +23,9 @@ Custom Spigot 1.14 plugin
 - SpigotMC 1.14.4-R0.1-SNAPSHOT API
 - `net.austinj.xaerominimap.MinimapAPI` plugin must be loaded on the server too
 
+
+## Features
+- Pretty belowName health scoreboard objective
+- Change chat name color
+- [indev] Death item drop despawn notifications
+- [indev] Xaero Minimap integration
