@@ -37,8 +37,8 @@ public class FluffListener implements Listener {
 
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
-        // Appends " (level was 123)" at the end of a death message
-        event.setDeathMessage(String.format("%s (level was %s)", event.getDeathMessage(), event.getEntity().getLevel()));
+        // Appends " (level 123)" at the end of a death message
+        event.setDeathMessage(String.format("%s (level %s)", event.getDeathMessage(), event.getEntity().getLevel()));
     }
 
 }
