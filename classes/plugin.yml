@@ -1,0 +1,11 @@
+main: world.fluff.Main
+name: FluffWorldMinecraft
+version: 0.2
+commands:
+  chatcolor:
+    description: Change your chat color
+    usage: /chatcolor
+  share:
+    description: Share
+    usage: /share
+depend: []

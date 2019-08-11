@@ -1,0 +1,7 @@
+world/fluff/Main.class
+world/fluff/CommandChatColor.class
+world/fluff/DBConnection.class
+world/fluff/CommandShare.class
+world/fluff/FluffScoreboard.class
+world/fluff/FluffListener.class
+world/fluff/FluffDeathDropListener.class

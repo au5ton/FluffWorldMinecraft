@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>world.fluff</groupId>
+  <artifactId>FluffWorldMinecraft</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20190811.035043</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20190811035043</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>1.0-20190811.035043-1</value>
+        <updated>20190811035043</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.0-20190811.035043-1</value>
+        <updated>20190811035043</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
