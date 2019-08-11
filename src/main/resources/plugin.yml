@@ -8,4 +8,4 @@ commands:
   share:
     description: Share
     usage: /share
-depend: [MinimapAPI]
+depend: []
